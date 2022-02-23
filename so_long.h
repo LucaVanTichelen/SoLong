@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 10:59:38 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/23 10:53:08 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:07:21 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+#include <fcntl.h>
 
 typedef struct	s_data {
 	void	*img;
