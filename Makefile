@@ -6,13 +6,15 @@
 #    By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 11:00:12 by lvan-tic          #+#    #+#              #
-#    Updated: 2022/02/16 11:51:30 by lvan-tic         ###   ########.fr        #
+#    Updated: 2022/02/23 10:50:55 by lvan-tic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
-SRCS	=	main.c
+SRCS	=	get_next_line_utils.c	\
+			get_next_line.c			\
+			so_long.c
 
 OBJS	=	$(SRCS:.c=.o)
 
