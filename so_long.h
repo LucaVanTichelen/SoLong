@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 10:59:38 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/24 15:49:48 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:17:50 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_game {
 }				t_game;
 
 int		check_args(int argc, char **argv);
+int		find_newlines(int fd);
 int		check_file(t_game *game, char *file);
 
 void	ft_error(char *str);

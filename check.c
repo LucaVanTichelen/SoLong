@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:04:29 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/24 15:50:27 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:34:05 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,33 @@ int	check_args(int argc, char **argv)
 	return (1);
 }
 
+int	find_newlines(int fd)
+{
+	int		i;
+	int		nl;
+	char	c;
+
+	nl = 0;
+	i = read(fd, &c, 1);
+	while (i != 0)
+	{
+		if (i == -1)
+		{
+			printf("Error\n");
+			printf("Can't read file\n");
+			return (-1);
+		}
+		if (c == '\n')
+			nl++;
+		i = read(fd, &c, 1);
+	}
+	return (nl);
+}
+
 int	check_file(t_game *game, char *file)
 {
-	int	fd;
+	int		fd;
+	int		nl;
 
 	game->moves = 1;
 	fd = open(file, O_RDONLY);
@@ -46,5 +70,8 @@ int	check_file(t_game *game, char *file)
 		perror(file);
 		return (0);
 	}
+	nl = find_newlines(fd);
+	if (nl == -1)
+		return (0);
 	return (1);
 }
