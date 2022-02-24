@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 14:59:25 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/24 15:49:00 by lvan-tic         ###   ########.fr       */
+/*   Created: 2022/02/24 15:25:59 by lvan-tic          #+#    #+#             */
+/*   Updated: 2022/02/24 15:27:18 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+int	ft_strlen(const char *s)
 {
-	t_game	game;
+	int	i;
 
-	if (check_args(argc, argv) == 0)
-		return (-1);
-	if (check_file(&game, argv[1]) == 0)
-		return (-1);
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

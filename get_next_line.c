@@ -6,19 +6,19 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 09:45:12 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/23 10:52:52 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:50:01 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*check_input(int fd, int BUFFER_SIZE)
+char	*check_input(int fd)
 {
 	char	*str;
 
-	if (fd < 0 || BUFFER_SIZE < 1 || fd >= FOPEN_MAX)
+	if (fd < 0 || fd >= FOPEN_MAX)
 		return (NULL);
-	str = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	str = malloc(sizeof(char));
 	if (!str)
 		return (NULL);
 	return (str);
@@ -100,16 +100,14 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*temp;
 	int			i;
-	int			BUFFER_SIZE;
 
-	BUFFER_SIZE = 32;
-	buff = check_input(fd, BUFFER_SIZE);
+	buff = check_input(fd);
 	if (!buff)
 		return (NULL);
 	i = 1;
 	while (find_newline(temp) == 0 && i != 0)
 	{
-		i = read(fd, buff, BUFFER_SIZE);
+		i = read(fd, buff, 1);
 		if (i < 0 || (i == 0 && temp == NULL))
 			return (free_string(buff));
 		buff[i] = '\0';

@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 14:59:25 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/24 15:49:00 by lvan-tic         ###   ########.fr       */
+/*   Created: 2022/02/24 15:10:53 by lvan-tic          #+#    #+#             */
+/*   Updated: 2022/02/24 15:16:29 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	ft_error(char *str)
 {
-	t_game	game;
-
-	if (check_args(argc, argv) == 0)
-		return (-1);
-	if (check_file(&game, argv[1]) == 0)
-		return (-1);
-	return (0);
+	printf("Error\n");
+	printf("%s\n", str);
 }
