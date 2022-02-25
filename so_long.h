@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 10:59:38 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/24 16:17:50 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/25 12:29:31 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,20 @@ typedef struct s_game {
 	t_img	key;
 	t_img	chest;
 	t_img	pirate;
+	t_pos	size;
 	t_pos	pos;
 	int		moves;
-	int		keys;
+	int		collectibles;
+	int		exit;
+	int		player;
 }				t_game;
 
 int		check_args(int argc, char **argv);
 int		find_newlines(int fd);
 int		check_file(t_game *game, char *file);
 
-void	ft_error(char *str);
+int		ft_error(char *str);
+void	free_map(t_game *game);
 
 int		ft_strlen(const char *s);
 
@@ -67,5 +71,8 @@ char	*free_string(char *str);
 char	*concat_temp(char *buff, char *temp);
 char	*concat(char *buff, char *temp);
 char	*return_line(char **line, char **temp);
+
+int		create_map(t_game *game, char *file);
+int		check_map(t_game *game);
 
 #endif

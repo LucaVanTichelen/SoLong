@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:04:29 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/24 16:34:05 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/25 11:25:23 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,13 @@ int	find_newlines(int fd)
 			nl++;
 		i = read(fd, &c, 1);
 	}
-	return (nl);
+	return (nl + 1);
 }
 
 int	check_file(t_game *game, char *file)
 {
 	int		fd;
-	int		nl;
 
-	game->moves = 1;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
@@ -70,8 +68,17 @@ int	check_file(t_game *game, char *file)
 		perror(file);
 		return (0);
 	}
-	nl = find_newlines(fd);
-	if (nl == -1)
+	game->size.y = find_newlines(fd);
+	close(fd);
+	if (game->size.y == -1)
 		return (0);
+	if (create_map(game, file) == 0)
+		return (0);
+	game->size.x = ft_strlen(game->map[0]) - 1;
+	if (check_map(game) == 0)
+	{
+		free_map(game);
+		return (0);
+	}
 	return (1);
 }
