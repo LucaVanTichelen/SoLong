@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 14:59:25 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/25 12:45:18 by lvan-tic         ###   ########.fr       */
+/*   Created: 2022/02/25 12:39:41 by lvan-tic          #+#    #+#             */
+/*   Updated: 2022/02/25 12:47:28 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	launch_game(t_game *game)
 {
-	t_game	game;
-
-	if (check_args(argc, argv) == 0)
-		return (1);
-	if (check_file(&game, argv[1]) == 0)
-		return (1);
-	launch_game(&game);
-	return (0);
+	game->mlx_ptr = mlx_init();
+	game->win_ptr = mlx_new_window(game->mlx_ptr, game->size.x * 32, game->size.y * 32, "so_long");
+	mlx_loop(game->mlx_ptr);
 }
