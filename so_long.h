@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 10:59:38 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/26 11:20:25 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 12:04:25 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_game {
 	t_pos	size;
 	t_pos	pos;
 	int		moves;
-	int		collectibles;
+	int		keys;
 	int		exit;
 	int		player;
 }				t_game;
@@ -73,5 +73,10 @@ void	create_images(t_game *game);
 
 int		create_map(t_game *game, char *file);
 int		check_map(t_game *game);
+
+void	move_to(t_game *game, int i, int j);
+
+int		key_hook(int keycode, t_game *game);
+int		clean_exit(t_game *game);
 
 #endif

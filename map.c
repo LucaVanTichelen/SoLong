@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 09:52:42 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/25 12:34:17 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 11:34:46 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	walls(t_game *game)
 			|| j == 0 || j == game->size.x - 1))
 				return (ft_error("Map must be surrounded by walls ('1')"));
 			if (game->map[i][j] == 'C')
-				game->collectibles += 1;
+				game->keys += 1;
 			if (game->map[i][j] == 'P')
 				game->player += 1;
 			if (game->map[i][j] == 'E')
@@ -104,9 +104,10 @@ int	walls(t_game *game)
 
 int	check_map(t_game *game)
 {
-	game->collectibles = 0;
+	game->keys = 0;
 	game->exit = 0;
 	game->player = 0;
+	game->moves = 0;
 	if (rectangular(game) == 0)
 		return (0);
 	if (invalid_char(game) == 0)
@@ -117,7 +118,7 @@ int	check_map(t_game *game)
 		return (ft_error("Need one and only one player ('P')"));
 	if (game->exit == 0)
 		return (ft_error("Need at least one exit ('E')"));
-	if (game->collectibles == 0)
+	if (game->keys == 0)
 		return (ft_error("Need at least one collectible ('C')"));
 	return (1);
 }

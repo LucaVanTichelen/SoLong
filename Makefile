@@ -6,7 +6,7 @@
 #    By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 11:00:12 by lvan-tic          #+#    #+#              #
-#    Updated: 2022/02/26 11:01:10 by lvan-tic         ###   ########.fr        #
+#    Updated: 2022/02/26 12:00:10 by lvan-tic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS	=	check.c					\
 			get_next_line.c			\
 			images.c				\
 			map.c					\
+			move.c					\
 			so_long.c
 
 OBJS	=	$(SRCS:.c=.o)
