@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 12:00:16 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/26 12:32:53 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 12:44:39 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	move_to(t_game *game, int i, int j)
 {
 	if (game->map[j][i] != '1')
 	{
-		printf("Moves : %i\n", ++game->moves);
+		ft_printf("Moves : %i\n", ++game->moves);
 		if (game->map[j][i] == 'E' && game->keys == 0)
 			clean_exit(game);
 		if (game->map[j][i] == 'C')

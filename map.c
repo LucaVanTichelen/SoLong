@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 09:52:42 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/26 11:34:46 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 12:49:14 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	create_map(t_game *game, char *file)
 	game->map = malloc(sizeof(char *) * game->size.y);
 	if (!game->map)
 	{
-		printf("Error\n");
-		printf("Can't malloc the map\n");
+		ft_printf("Error\n");
+		ft_printf("Can't malloc the map\n");
 		return (0);
 	}
 	fd = open(file, O_RDONLY);

@@ -6,11 +6,11 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 09:56:14 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/23 10:51:40 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 12:37:52 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	*free_string(char *str)
 {

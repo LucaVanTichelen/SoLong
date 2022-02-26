@@ -6,17 +6,17 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 09:45:12 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/24 15:50:01 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 12:46:21 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	*check_input(int fd)
 {
 	char	*str;
 
-	if (fd < 0 || fd >= FOPEN_MAX)
+	if (fd < 0)
 		return (NULL);
 	str = malloc(sizeof(char));
 	if (!str)

@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 15:10:53 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/26 12:44:54 by lvan-tic         ###   ########.fr       */
+/*   Created: 2022/01/23 11:37:49 by lvan-tic          #+#    #+#             */
+/*   Updated: 2022/02/26 12:42:39 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	ft_error(char *str)
+void	ft_putchar(char c, int *i)
 {
-	ft_printf("Error\n");
-	ft_printf("%s\n", str);
-	return (0);
+	write(1, &c, 1);
+	*i = *i + 1;
 }
 
-void	free_map(t_game *game)
+void	ft_putstr(char *str, int *i)
 {
-	int	i;
-
-	i = 0;
-	while (i < game->size.y)
+	if (str)
 	{
-		free(game->map[i]);
-		i++;
+		while (*str)
+		{
+			ft_putchar(*str, i);
+			str++;
+		}
 	}
-	free(game->map);
+	else
+	{
+		ft_putstr("(null)", i);
+	}
 }

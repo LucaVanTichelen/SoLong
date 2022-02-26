@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:04:29 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/25 11:25:23 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 12:46:53 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ int	check_args(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("Error\n");
-		printf("Invalid number of arguments: Expected 2 got %i\n", argc);
-		printf("Use: ./so_long map.ber\n");
+		ft_printf("Error\n");
+		ft_printf("Invalid number of arguments: Expected 2 got %i\n", argc);
+		ft_printf("Use: ./so_long map.ber\n");
 		return (0);
 	}
 	i = ft_strlen(argv[1]);
 	if (i < 5 || argv[1][i - 4] != '.' || argv[1][i - 3] != 'b'
 	|| argv[1][i - 2] != 'e' || argv[1][i - 1] != 'r')
 	{
-		printf("Error\n");
-		printf("Invalid file: %s -> Expected .ber file\n", argv[1]);
+		ft_printf("Error\n");
+		ft_printf("Invalid file: %s -> Expected .ber file\n", argv[1]);
 		return (0);
 	}
 	return (1);
@@ -46,8 +46,8 @@ int	find_newlines(int fd)
 	{
 		if (i == -1)
 		{
-			printf("Error\n");
-			printf("Can't read file\n");
+			ft_printf("Error\n");
+			ft_printf("Can't read file\n");
 			return (-1);
 		}
 		if (c == '\n')
@@ -64,7 +64,7 @@ int	check_file(t_game *game, char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("Error\n");
+		ft_printf("Error\n");
 		perror(file);
 		return (0);
 	}
