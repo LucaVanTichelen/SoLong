@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 10:59:38 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/25 12:45:05 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 11:20:25 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ typedef struct s_pos {
 }				t_pos;
 
 typedef struct s_img {
-	void	*img_ptr;
+	void	*img;
 	int		width;
 	int		height;
 }				t_img;
 
 typedef struct s_game {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	void	*mlx;
+	void	*win;
 	char	**map;
 	t_img	wall;
 	t_img	grass;
@@ -56,8 +56,6 @@ void	free_map(t_game *game);
 
 int		ft_strlen(const char *s);
 
-void	launch_game(t_game *game);
-
 char	*check_input(int fd);
 int		find_newline(char *temp);
 char	*return_string(char *temp);
@@ -68,6 +66,10 @@ char	*free_string(char *str);
 char	*concat_temp(char *buff, char *temp);
 char	*concat(char *buff, char *temp);
 char	*return_line(char **line, char **temp);
+
+void	put_image(t_game *game, int i, int j);
+void	img_to_map(t_game *game);
+void	create_images(t_game *game);
 
 int		create_map(t_game *game, char *file);
 int		check_map(t_game *game);

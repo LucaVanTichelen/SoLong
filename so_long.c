@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:59:25 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/25 12:45:18 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/26 11:29:00 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int	main(int argc, char **argv)
 		return (1);
 	if (check_file(&game, argv[1]) == 0)
 		return (1);
-	launch_game(&game);
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, game.size.x * 32, \
+		game.size.y * 32, "so_long");
+	create_images(&game);
+	mlx_loop(game.mlx);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 11:00:12 by lvan-tic          #+#    #+#              #
-#    Updated: 2022/02/25 12:40:02 by lvan-tic         ###   ########.fr        #
+#    Updated: 2022/02/26 11:01:10 by lvan-tic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME	=	so_long
 SRCS	=	check.c					\
 			error.c					\
 			ft_strlen.c				\
-			game.c					\
 			get_next_line_utils.c	\
 			get_next_line.c			\
+			images.c				\
 			map.c					\
 			so_long.c
 
