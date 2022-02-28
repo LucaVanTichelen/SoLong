@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:25:59 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/24 15:27:18 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:48:28 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: lvan-tic <lvan-tic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 09:52:42 by lvan-tic          #+#    #+#             */
-/*   Updated: 2022/02/26 12:49:14 by lvan-tic         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:12:21 by lvan-tic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ int	create_map(t_game *game, char *file)
 	int	fd;
 	int	i;
 
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+	{
+		ft_printf("Error\n");
+		perror(file);
+		return (0);
+	}
 	game->map = malloc(sizeof(char *) * game->size.y);
 	if (!game->map)
 	{
@@ -24,7 +31,6 @@ int	create_map(t_game *game, char *file)
 		ft_printf("Can't malloc the map\n");
 		return (0);
 	}
-	fd = open(file, O_RDONLY);
 	i = 0;
 	while (i < game->size.y)
 	{
@@ -46,7 +52,12 @@ int	rectangular(t_game *game)
 			return (ft_error("Map must be rectangular"));
 		i++;
 	}
-	if (game->map[i] == NULL || ft_strlen(game->map[i]) != game->size.x)
+	if (game->map[i] == NULL)
+	{
+		game->size.y = game->size.y - 1;
+		return (1);
+	}
+	if (ft_strlen(game->map[i]) != game->size.x)
 		return (ft_error("Map must be rectangular"));
 	return (1);
 }
